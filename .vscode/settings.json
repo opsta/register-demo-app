@@ -1,0 +1,6 @@
+{
+  "sonarlint.connectedMode.project": {
+    "connectionId": "opsta-sonarqube-enterprise-demo",
+    "projectKey": "opsta_register-demo-app_36ebe093-bcc0-4164-8375-4ed6dd2a6aa3"
+  }
+}
