@@ -1,5 +1,8 @@
 # User Registration Website
 
+[![Quality Gate Status](https://sonarqube-enterprise.demo.opsta.co.th/api/project_badges/measure?project=opsta_register-demo-app_36ebe093-bcc0-4164-8375-4ed6dd2a6aa3&metric=alert_status&token=sqb_f82d298d52dee00f7f12c91345a4e47d4369182b)](https://sonarqube-enterprise.demo.opsta.co.th/dashboard?id=opsta_register-demo-app_36ebe093-bcc0-4164-8375-4ed6dd2a6aa3)
+[![AI Code Assurance](https://sonarqube-enterprise.demo.opsta.co.th/api/project_badges/ai_code_assurance?project=opsta_register-demo-app_36ebe093-bcc0-4164-8375-4ed6dd2a6aa3&token=sqb_f82d298d52dee00f7f12c91345a4e47d4369182b)](https://sonarqube-enterprise.demo.opsta.co.th/dashboard?id=opsta_register-demo-app_36ebe093-bcc0-4164-8375-4ed6dd2a6aa3)
+
 A simple user registration website built with Flask, PostgreSQL, and Redis.
 
 ## Features
