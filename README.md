@@ -120,3 +120,13 @@ register-demo-app/
 ## License
 
 This project is licensed under the MIT License.
+
+## Run SonarQube
+
+```bash
+# The sonar token is mock up and can not be used
+export SONAR_TOKEN=sqp_d6ae6bbe4b48ea29f573459462b90565e02dc123
+pysonar \
+  --sonar-host-url=https://sonarqube-enterprise.demo.opsta.co.th \
+  --sonar-project-key=opsta_register-demo-app_36ebe093-bcc0-4164-8375-4ed6dd2a6aa3
+```
