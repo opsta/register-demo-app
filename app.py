@@ -84,7 +84,7 @@ def register():
         redis_client.delete(cache_key)
         
         return jsonify({
-            'message': 'User registered successfully',
+            'message': 'info: user registered successfully',
             'user': new_user.to_dict()
         }), 201
         
