@@ -41,9 +41,19 @@ A simple user registration website built with Flask, PostgreSQL, and Redis.
 
 ## Local Development Setup
 
-1. **Install Python dependencies**
+1. **Set up Python virtual environment**
    ```bash
+   python3 -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+2. **Install Python dependencies**
+   ```bash
+   # Install production dependencies
    pip install -r requirements.txt
+   
+   # Or install with development dependencies
+   pip install -e ".[dev]"
    ```
 
 2. **Set up environment variables**
@@ -91,15 +101,50 @@ The application uses Redis to cache user data temporarily before writing to the 
 
 ```
 register-demo-app/
-├── app.py              # Main Flask application
-├── requirements.txt    # Python dependencies
-├── Dockerfile         # Docker configuration
-├── docker-compose.yml # Docker services orchestration
-├── templates/         # HTML templates
-│   └── index.html    # Homepage template
-├── env.example       # Environment variables template
-└── README.md         # This file
+├── app.py                 # Main Flask application
+├── requirements.txt       # Python dependencies (lockfile)
+├── requirements.in        # Python dependencies (source)
+├── requirements-dev.txt   # Development dependencies
+├── pyproject.toml        # Modern Python packaging config
+├── manage_deps.py        # Dependency management script
+├── Dockerfile            # Docker configuration
+├── docker-compose.yml    # Docker services orchestration
+├── templates/            # HTML templates
+│   └── index.html       # Homepage template
+├── env.example          # Environment variables template
+└── README.md            # This file
 ```
+
+## Dependency Management
+
+This project uses `pip-tools` for dependency management to ensure reproducible builds.
+
+### Files
+- **`requirements.in`**: Source dependencies without version pins
+- **`requirements.txt`**: Lockfile with exact versions (auto-generated)
+- **`pyproject.toml`**: Modern Python packaging configuration
+
+### Commands
+```bash
+# Activate virtual environment
+source venv/bin/activate
+
+# Update lockfile from requirements.in
+pip-compile requirements.in
+
+# Install dependencies from lockfile
+pip-sync requirements.txt
+
+# Or use the helper script
+python manage_deps.py update-lock  # Update lockfile
+python manage_deps.py sync         # Sync dependencies
+python manage_deps.py install-dev  # Install dev dependencies
+```
+
+### Adding New Dependencies
+1. Add to `requirements.in` (without version)
+2. Run `pip-compile requirements.in` to update lockfile
+3. Run `pip-sync requirements.txt` to install
 
 ## Environment Variables
 
