@@ -53,7 +53,7 @@ def register():
         name = data.get('name')
         
         if not email or not name:
-            return jsonify({'error': 'Email and name are required'}), 400
+            return jsonify({'error': 'error: email and name are required'}), 400
         
         # Check if user already exists in database
         existing_user = User.query.get(email)
