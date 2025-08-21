@@ -58,7 +58,7 @@ def register():
         # Check if user already exists in database
         existing_user = User.query.get(email)
         if existing_user:
-            return jsonify({'error': 'Email already registered'}), 409
+            return jsonify({'error': 'error: email already registered'}), 409
         
         # Check Redis cache first
         cache_key = f"user:{email}"
